@@ -1,0 +1,24 @@
+<section>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" [formGroup]="loginForm">
+      <mat-form-field>
+        <input 
+              matInput 
+              placeholder="Email" 
+              type="email" 
+              formControlName="email"
+              email>
+              <mat-hint>Please enter a valid email</mat-hint>
+              <mat-error>Email is invalid</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input 
+              matInput 
+              placeholder="Password" 
+              type="password" 
+              formControlName="password">
+              <mat-hint>Please enter your password</mat-hint>
+              <mat-error>Password is invalid</mat-error>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary" [disabled]="loginForm.invalid">Submit</button>
+    </form>
+  </section>
