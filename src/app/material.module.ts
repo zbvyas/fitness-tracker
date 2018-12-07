@@ -5,10 +5,16 @@ import { MatButtonModule,
          MatIconModule, 
          MatInputModule, 
          MatDatepickerModule,
-         MatNativeDateModule} from '@angular/material';
+         MatNativeDateModule,
+         MatSidenavModule,
+         MatToolbarModule} from '@angular/material';
 
 @NgModule({
-  imports: [MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, MatIconModule, MatInputModule],
-  exports: [MatButtonModule, MatCheckboxModule, MatNativeDateModule, MatDatepickerModule, MatIconModule, MatInputModule]
+  imports: [MatButtonModule, MatCheckboxModule, MatNativeDateModule, 
+            MatDatepickerModule, MatIconModule, MatInputModule, MatSidenavModule,
+            MatToolbarModule],
+  exports: [MatButtonModule, MatCheckboxModule, MatNativeDateModule, 
+            MatDatepickerModule, MatIconModule, MatInputModule, MatSidenavModule,
+            MatToolbarModule]
 })
 export class MaterialModule {}
