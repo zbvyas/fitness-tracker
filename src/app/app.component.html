@@ -4,11 +4,11 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <div><button
-                  mat-icon-button
-                  (click)="sidenav.toggle()">
-                  <mat-icon>menu</mat-icon>
-            </button>
+      <!-- Only apply fxHide on everything greater than xs -->
+      <div fxHide.gt-xs>
+        <button mat-icon-button
+                (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon></button>
       </div>
       <div><a routerLink="/">LOGO</a></div>
       <!-- Only apply fxHide on small screens by adding .xs -->
