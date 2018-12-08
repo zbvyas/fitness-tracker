@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+  <!-- Only apply fxHide on everything greater than xs -->
+  <div fxHide.gt-xs>
+    <button mat-icon-button
+            (click)="onToggleSideNav()">
+            <mat-icon>menu</mat-icon></button>
+  </div>
+  <div><a routerLink="/">LOGO</a></div>
+  <!-- Only apply fxHide on small screens by adding .xs -->
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+      <li><a routerLink="/signup">Sign Up</a></li>
+      <li><a routerLink="/login">Login</a></li>
+      <li><a routerLink="/training">Training</a></li>
+    </ul>
+  </div>
+</mat-toolbar>
