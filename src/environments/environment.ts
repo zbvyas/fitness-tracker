@@ -4,14 +4,14 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyAYUXWz4jJlpzjR2nlziiuAN9WtvW7H8zc",
-    authDomain: "ng-fitness-tracker-85bc7.firebaseapp.com",
-    databaseURL: "https://ng-fitness-tracker-85bc7.firebaseio.com",
-    projectId: "ng-fitness-tracker-85bc7",
-    storageBucket: "ng-fitness-tracker-85bc7.appspot.com",
-    messagingSenderId: "660620126911"
-  }
+  // firebase: {
+  //   apiKey: "",
+  //   authDomain: "ng-fitness-tracker-85bc7.firebaseapp.com",
+  //   databaseURL: "https://ng-fitness-tracker-85bc7.firebaseio.com",
+  //   projectId: "ng-fitness-tracker-85bc7",
+  //   storageBucket: "ng-fitness-tracker-85bc7.appspot.com",
+  //   messagingSenderId: ""
+  // }
 };
 
 /*
