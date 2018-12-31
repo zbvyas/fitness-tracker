@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { TrainingService } from '../training.service';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Exercise } from '../exercise.model';
 
 @Component({
@@ -16,6 +16,8 @@ export class NewTrainingComponent implements OnInit, OnDestroy {
   exerciseSubscription: Subscription;
   exerciseForm: FormGroup;
 
+  isLoading = true;
+
   constructor(private trainingService: TrainingService) { }
 
   ngOnInit() {
@@ -23,7 +25,10 @@ export class NewTrainingComponent implements OnInit, OnDestroy {
       id: new FormControl('')
     });
     this.exerciseSubscription = this.trainingService.exercisesChanged.subscribe(
-      exercises => (this.exercises = exercises)
+      exercises => {
+        this.exercises = exercises;
+        this.isLoading = false;
+      }
     );
     this.trainingService.fetchAvailableExercises();
   }
