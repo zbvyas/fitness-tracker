@@ -152,7 +152,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/fire@^5.1.1":
+"@angular/fire@5.1.1", "@angular/fire@^5.1.1":
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/@angular/fire/-/fire-5.1.1.tgz#7ac02813a9b41be027c454f32c55bc50b572f0c7"
 
@@ -663,6 +663,12 @@ ajv@^6.1.0, ajv@^6.5.5:
 amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+
+angularfire2@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/angularfire2/-/angularfire2-5.1.1.tgz#f750930e43768284d80594674d203ac920bf7c1a"
+  dependencies:
+    "@angular/fire" "5.1.1"
 
 ansi-colors@^3.0.0:
   version "3.2.2"

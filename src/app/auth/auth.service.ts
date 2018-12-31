@@ -3,49 +3,55 @@ import { User } from "./user.model";
 import { AuthData } from "./auth-data.model";
 import { Subject } from 'rxjs';
 import { Router } from "@angular/router";
+import { AngularFireAuth } from 'angularfire2/auth';
+import { TrainingService } from "../training/training.service";
 
 @Injectable( { providedIn: 'root' } )
 export class AuthService {
   
   authChange = new Subject<boolean>();
-  private user: User;
+  private isAuthenticated = false;
   
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router, 
+    private afAuth: AngularFireAuth,
+    private trainingService: TrainingService) {}
 
   registerUser(authData: AuthData) {
-    this.user = {
-      email: authData.email,
-      userId: Math.round(Math.random() * 10000).toString()
-    };
-    this.authChange.next(true);
-    this.authSuccessfully();
+    this.afAuth.auth.createUserWithEmailAndPassword(authData.email, authData.password)
+    .then(result => {
+        this.authSuccessfully();
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
 
   login(authData: AuthData) {
-    this.user = {
-      email: authData.email,
-      userId: Math.round(Math.random() * 10000).toString()
-    };
-    this.authChange.next(true);
-    this.authSuccessfully();
+    this.afAuth.auth.signInWithEmailAndPassword(authData.email, authData.password)
+    .then(result => {
+      this.authSuccessfully();
+    })
+    .catch(error => {
+      console.error(error);
+    });
   }
 
   logout() {
-    this.user = null;
+    this.trainingService.cancelSubscriptions();
+    this.afAuth.auth.signOut();
     this.authChange.next(false);
     this.router.navigate(['/login']);
-  }
-
-  getUser() {
-    // ... = spread operator, returns a new object so that original user is not manipulated
-    return { ...this.user };
+    this.isAuthenticated = false;
   }
 
   isAuth() {
-    return this.user != null;
+    return this.isAuthenticated;
   }
 
   private authSuccessfully() {
+    this.isAuthenticated = true;
+    this.authChange.next(true);
     this.router.navigate(['/training']);
   }
 }
