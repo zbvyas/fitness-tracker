@@ -27,7 +27,7 @@ export class NewTrainingComponent implements OnInit, OnDestroy {
     private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
-    this.store.dispatch(new UI.StartLoading());
+    this.isLoading$ = this.store.select(fromRoot.getIsLoading);
     this.exerciseForm = new FormGroup({
       id: new FormControl('')
     });
@@ -38,7 +38,6 @@ export class NewTrainingComponent implements OnInit, OnDestroy {
       }
     );
     this.fetchExercises();
-    this.isLoading$ = this.store.select(fromRoot.getIsLoading);
   }
 
   ngOnDestroy() {

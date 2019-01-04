@@ -21,13 +21,12 @@ export class SignupComponent implements OnInit {
     private store: Store<fromRoot.State>) { }
 
   ngOnInit() {
-    this.store.dispatch(new UI.StopLoading());
+    this.isLoading$ = this.store.select(fromRoot.getIsLoading);
     this.maxDate = new Date();
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 18);
   }
 
   onSubmit(form: NgForm) {
-    this.isLoading$ = this.store.select(fromRoot.getIsLoading);
     this.authService.registerUser({
       email: form.value.email,
       password: form.value.password
