@@ -19,6 +19,9 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { TrainingModule } from './training/training.module';
 
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './app.reducer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,8 @@ import { TrainingModule } from './training/training.module';
     FlexLayoutModule,
     MaterialModule,
     AuthModule,
-    TrainingModule
+    TrainingModule,
+    StoreModule.forRoot(reducers)
   ],
   providers: [],
   bootstrap: [AppComponent]
